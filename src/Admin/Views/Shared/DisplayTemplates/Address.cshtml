@@ -1,0 +1,8 @@
+﻿@model ApplicationCore.Entities.OrderAggregate.Address
+
+
+<address>
+    @Model.Street <br/>
+    @String.Join(", ", Model.City, Model.State, Model.Country) @Model.ZipCode
+</address>
+
