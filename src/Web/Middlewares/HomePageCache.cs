@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Primitives;
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -29,6 +30,7 @@ namespace Microsoft.eShopWeb.Middlewares
             var value = await _cache.GetAsync(cacheKey);
             if (value != null)
             {
+                context.Request.Headers.Add("X-Cache", new StringValues(_cache.GetType().Name));
                 await context.Response.Body.WriteAsync(value, 0, value.Length);
                 return;
             }
