@@ -30,7 +30,7 @@ namespace Microsoft.eShopWeb.Middlewares
             var value = await _cache.GetAsync(cacheKey);
             if (value != null)
             {
-                context.Request.Headers.Add("X-Cache", new StringValues(_cache.GetType().Name));
+                context.Response.Headers.Add("X-Cache", new StringValues(_cache.GetType().Name));
                 await context.Response.Body.WriteAsync(value, 0, value.Length);
                 return;
             }
