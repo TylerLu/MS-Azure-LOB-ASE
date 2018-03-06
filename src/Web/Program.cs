@@ -26,10 +26,15 @@ namespace Microsoft.eShopWeb
                     ProductImagesSeed.SeedAsync(storageService, Constants.ProductImageContainerName, loggerFactory).Wait();
 
                     var catalogContext = services.GetRequiredService<CatalogContext>();
+                    catalogContext.Database.EnsureCreated();
                     CatalogContextSeed.SeedAsync(catalogContext, loggerFactory).Wait();
 
                     var salesContext = services.GetRequiredService<SalesContext>();
+                    salesContext.Database.EnsureCreated();
                     SalesContextSeed.SeedAsync(catalogContext, salesContext, loggerFactory).Wait();
+
+                    var identityContext = services.GetRequiredService<AppIdentityDbContext>();
+                    identityContext.Database.EnsureCreated();
 
                     var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
                     AppIdentityDbContextSeed.SeedAsync(userManager).Wait();
