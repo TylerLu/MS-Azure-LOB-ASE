@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNet.OData.Builder;
-using Microsoft.eShopWeb.ApplicationCore.Entities;
+﻿using Microsoft.eShopWeb.ApplicationCore.Entities;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
