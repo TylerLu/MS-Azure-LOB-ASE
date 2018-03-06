@@ -47,6 +47,9 @@ namespace Microsoft.eShopWeb
             // Add memory cache services
             services.AddMemoryCache();
 
+            var storageConnection = Configuration.GetConnectionString("StorageConnection");
+            services.AddSingleton<IUriComposer>(new CloudStorageImageUriComposer(storageConnection));
+
             ConfigureServices(services);
         }
 
@@ -86,6 +89,8 @@ namespace Microsoft.eShopWeb
                 options.Configuration = Configuration.GetConnectionString("RedisConnection");
                 options.InstanceName = "master";
             });
+            
+            services.AddSingleton<IUriComposer>(new UriComposer(Configuration.Get<CatalogSettings>()));
 
             ConfigureServices(services);
         }
@@ -144,8 +149,8 @@ namespace Microsoft.eShopWeb
             services.AddTransient<IEmailSender, EmailSender>();
 
             var storageConnection = Configuration.GetConnectionString("StorageConnection");
-            services.AddTransient<IStorageService>(p => new CloudStorageService(storageConnection)); ;
-            services.AddSingleton<IUriComposer>(new CloudStorageImageUriComposer(storageConnection));
+            services.AddTransient<IStorageService>(p => new CloudStorageService(storageConnection));
+
 
             services.AddMvc();
 
