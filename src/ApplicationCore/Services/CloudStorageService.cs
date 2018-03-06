@@ -25,12 +25,12 @@ namespace Infrastructure.Services
             return container.ExistsAsync();
         }
 
-        public async Task<Uri> UploadFilesAsync(string containerName, IEnumerable<string> files)
+        public async Task<Uri> UploadFilesAsync(string containerName, string folder, IEnumerable<string> files)
         {
             var container = await GetOrCreateCloudBlobContainer(containerName);
             foreach (var file in files)
             {
-                var blob = container.GetBlockBlobReference(Path.GetFileName(file));
+                var blob = container.GetBlockBlobReference(Path.Combine(folder, Path.GetFileName(file)));
                 await blob.UploadFromFileAsync(file);
             }
             return container.Uri;

@@ -17,7 +17,7 @@ namespace ApplicationCore.Services
             var blobEndpointUri = storageAccount.BlobEndpoint.AbsoluteUri;
             if (!blobEndpointUri.EndsWith("/")) blobEndpointUri += "/";
 
-            return uriTemplate.Replace("http://catalogbaseurltobereplaced/images/", blobEndpointUri);
+            return uriTemplate.Replace("http://catalogbaseurltobereplaced/", blobEndpointUri);
         }
     }
 }

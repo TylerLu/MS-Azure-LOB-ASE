@@ -8,7 +8,7 @@ namespace Infrastructure.Data
 {
     public class ProductImagesSeed
     {
-        public static async Task SeedAsync(IStorageService storageService, string containerName, ILoggerFactory loggerFactory, int? retry = 0)
+        public static async Task SeedAsync(IStorageService storageService, string containerName, string folder, ILoggerFactory loggerFactory, int? retry = 0)
         {
             int retryForAvailability = retry.Value;
             try
@@ -16,7 +16,7 @@ namespace Infrastructure.Data
                 if (!await storageService.ExistsContainerAsync(containerName))
                 {
                     var productImagesDir = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\images\products");
-                    await storageService.UploadFilesAsync(containerName, Directory.GetFiles(productImagesDir));
+                    await storageService.UploadFilesAsync(containerName, folder, Directory.GetFiles(productImagesDir));
                 }
             }
             catch (Exception ex)
@@ -26,7 +26,7 @@ namespace Infrastructure.Data
                     retryForAvailability++;
                     var log = loggerFactory.CreateLogger<CatalogContextSeed>();
                     log.LogError(ex.Message);
-                    await SeedAsync(storageService, containerName, loggerFactory, retryForAvailability);
+                    await SeedAsync(storageService, containerName, folder, loggerFactory, retryForAvailability);
                 }
             }
         }

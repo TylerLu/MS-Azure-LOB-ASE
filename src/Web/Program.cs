@@ -23,7 +23,7 @@ namespace Microsoft.eShopWeb
                 try
                 {
                     var storageService = services.GetRequiredService<IStorageService>();
-                    ProductImagesSeed.SeedAsync(storageService, Constants.ProductImageContainerName, loggerFactory).Wait();
+                    ProductImagesSeed.SeedAsync(storageService, "images", "products", loggerFactory).Wait();
 
                     var catalogContext = services.GetRequiredService<CatalogContext>();
                     catalogContext.Database.EnsureCreated();

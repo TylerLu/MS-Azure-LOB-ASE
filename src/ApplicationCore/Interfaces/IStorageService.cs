@@ -6,7 +6,7 @@ namespace ApplicationCore.Interfaces
 {
     public interface IStorageService
     {
-        Task<Uri> UploadFilesAsync(string containerName, IEnumerable<string> files);
+        Task<Uri> UploadFilesAsync(string containerName, string folder, IEnumerable<string> files);
 
         Task<bool> ExistsContainerAsync(string containerName);
     }
