@@ -87,6 +87,7 @@
     "subnetNSGName": "[concat(parameters('aseName'), '-nsg')]",
     "aspName": "[concat(parameters('aseName'), '-asp')]",
     "webAppName": "[concat(parameters('aseName'), '-web')]",
+    "contentAppName": "[concat(parameters('aseName'), '-content')]",
     "apiAppName": "[concat(parameters('aseName'), '-api')]",
     "adminAppName": "[concat(parameters('aseName'), '-admin')]",
     "appInsightsName": "[concat(parameters('aseName'), '-app-insights')]",
@@ -581,6 +582,44 @@
     {
       "apiVersion": "2016-03-01",
       "type": "Microsoft.Web/sites",
+      "name": "[variables('contentAppName')]",
+      "location": "[variables('location')]",
+      "properties": {
+        "name": "[variables('contentAppName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms/', variables('aspName'))]",
+        "hostingEnvironment": "[parameters('aseName')]",
+        "siteConfig": {
+          "alwaysOn": true,
+          "appSettings": [
+            {
+              "name": "project",
+              "value": "src/Web/wwwroot"
+            }
+          ]
+        }
+      },
+      "resources": [
+        {
+          "apiVersion": "2015-08-01",
+          "name": "web",
+          "type": "sourcecontrols",
+          "properties": {
+            "RepoUrl": "[parameters('sourceCodeRepositoryURL')]",
+            "branch": "[parameters('sourceCodeBranch')]",
+            "IsManualIntegration": "parameters('sourceCodeManualIntegration')]"
+          },
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/sites/', variables('contentAppName'))]"
+          ]
+        }
+      ],
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms/', variables('aspName'))]"
+      ]
+    },
+    {
+      "apiVersion": "2016-03-01",
+      "type": "Microsoft.Web/sites",
       "name": "[variables('apiAppName')]",
       "location": "[variables('location')]",
       "properties": {
@@ -745,19 +784,6 @@
           ]
         },
         {
-          "apiVersion": "2014-04-01-preview",
-          "type": "firewallrules",
-          "location": "[variables('location')]",
-          "name": "AllowAllWindowsAzureIps",
-          "properties": {
-            "endIpAddress": "0.0.0.0",
-            "startIpAddress": "0.0.0.0"
-          },
-          "dependsOn": [
-            "[concat('Microsoft.Sql/servers/', variables('sqlServerName'))]"
-          ]
-        },
-        {
           "apiVersion": "2015-05-01-preview",
           "type": "virtualNetworkRules",
           "name": "[concat('allow-access-from-', variables('eshopSubnetName'))]",
@@ -813,7 +839,10 @@
         "staticIP": "10.0.2.128",
         "redisConfiguration": {},
         "enableNonSslPort": true
-      }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', variables('vnetName'))]"
+      ]
     },
     {
       "apiVersion": "2017-10-01",
@@ -971,7 +1000,7 @@
               {
                 "name": "WebApp",
                 "properties": {
-                  "hostName": "[reference(resourceId('Microsoft.Web/sites/', variables('webAppName'))).defaultHostName]"
+                  "hostName": "[reference(resourceId('Microsoft.Web/sites/', variables('contentAppName'))).defaultHostName]"
                 }
               }
             ],
@@ -1035,9 +1064,13 @@
     }
   ],
   "outputs": {
-    "applicationGatewayURL": {
+    "applicationGatewayIP": {
       "type": "string",
-      "value": "[concat('http://', reference(variables('appGatewayPublicIPName')).dnsSettings.fqdn, '/')]"
+      "value": "[reference(variables('appGatewayPublicIPName')).ipAddress]"
+    },
+    "applicationGatewayFQDN": {
+      "type": "string",
+      "value": "[reference(variables('appGatewayPublicIPName')).dnsSettings.fqdn]"
     }
   }
 }

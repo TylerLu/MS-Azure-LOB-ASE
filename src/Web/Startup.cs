@@ -169,7 +169,7 @@ namespace Microsoft.eShopWeb
             }
             else
             {
-                app.UseExceptionHandler("/Catalog/Error");
+                app.UseExceptionHandler("/Error");
                 app.UseMiddleware<HomePageCache>();
             }
 
