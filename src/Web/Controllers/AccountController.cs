@@ -56,6 +56,7 @@ namespace Microsoft.eShopWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> SignIn(LoginViewModel model, string returnUrl = null)
         {
+        try{
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -78,7 +79,13 @@ namespace Microsoft.eShopWeb.Controllers
                 return RedirectToLocal(returnUrl);
             }
             ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-            return View(model);
+            return View(model);       
+
+        }
+        catch (Exception ex)
+        {
+            return Content(ex.Message + "\r\n" + ex.Source)
+        }
         }
 
         [HttpGet]
