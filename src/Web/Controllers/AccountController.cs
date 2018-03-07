@@ -53,7 +53,7 @@ namespace Microsoft.eShopWeb.Controllers
         // POST: /Account/SignIn
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> SignIn(LoginViewModel model, string returnUrl = null)
         {
             try
