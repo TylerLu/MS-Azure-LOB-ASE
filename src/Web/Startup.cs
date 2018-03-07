@@ -170,7 +170,6 @@ namespace Microsoft.eShopWeb
             else
             {
                 app.UseExceptionHandler("/Error");
-                app.UseMiddleware<HomePageCache>();
             }
 
             app.UseStaticFiles(new StaticFileOptions
@@ -182,6 +181,13 @@ namespace Microsoft.eShopWeb
                 }
             });
             app.UseAuthentication();
+
+            if (env.IsProduction())
+            {
+                // HomePageCache middleware depends on autentication.
+                app.UseMiddleware<HomePageCache>();
+            }
+
             app.UseMvc();
         }
 
