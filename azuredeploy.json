@@ -1062,7 +1062,7 @@
   "outputs": {
     "webAppURL": {
       "type": "string",
-      "value": "[concat('https://', reference(variables('appGatewayPublicIPName')).dnsSettings.fqdn)]"
+      "value": "[concat('http://', reference(variables('appGatewayPublicIPName')).dnsSettings.fqdn)]"
     },
     "adminAppURL": {
       "type": "string",
