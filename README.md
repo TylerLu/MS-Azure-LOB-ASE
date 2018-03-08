@@ -88,7 +88,7 @@ Copy aside its **Application Id**. It will be used as the values of **Azure Ad C
 
    - Paste the token into the **token parameter**.
 
-     ![](Images/update-github-token-in-azure-resource-explorer.png)
+     ![](images/update-github-token-in-azure-resource-explorer.png)
 
    - Click **PUT**.
 
