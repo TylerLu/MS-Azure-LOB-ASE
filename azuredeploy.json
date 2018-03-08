@@ -4,7 +4,7 @@
   "parameters": {
     "aseName": {
       "type": "string",
-      "defaultValue": "dev-eshop",
+      "defaultValue": "<YourName>-eshop-<Date>",
       "metadata": {
         "description": "Name of the App Service Environment"
       }
@@ -44,21 +44,17 @@
     "sqlServerAdministratorLoginPassword": {
       "type": "securestring"
     },
-    "azureAdDomain": {
-      "type": "string",
-      "defaultValue": "cand3.onmicrosoft.com"
-    },
     "azureAdTenantId": {
       "type": "string",
-      "defaultValue": "0534985e-032e-430a-9b95-60f5277b96f4"
+      "defaultValue": ""
     },
     "azureAdClientId": {
       "type": "string",
-      "defaultValue": "21712378-0a01-4d49-98fd-fcd74526238b"
+      "defaultValue": ""
     },
     "sourceCodeRepositoryURL": {
       "type": "string",
-      "defaultValue": "https://github.com/TylerLu/MS-Azure-LOB-ASE",
+      "defaultValue": "https://github.com/<YourAccount>/MS-Azure-LOB-ASE",
       "metadata": {
         "description": "Source code repository URL"
       }
@@ -512,11 +508,11 @@
             },
             {
               "name": "cdn:url",
-              "value": "[concat('http://', variables('cdnWebAppEndpointName'), '.azureedge.net')]"
+              "value": "[concat('https://', variables('cdnWebAppEndpointName'), '.azureedge.net')]"
             },
             {
               "name": "CatalogBaseUrl",
-              "value": "[concat('http://', variables('cdnStorageEndpointName'), '.azureedge.net')]"
+              "value": "[concat('https://', variables('cdnStorageEndpointName'), '.azureedge.net')]"
             },
             {
               "name": "ApplicationInsights:InstrumentationKey",
@@ -681,7 +677,7 @@
           "appSettings": [
             {
               "name": "AzureAd:Domain",
-              "value": "[parameters('azureAdDomain')]"
+              "value": ""
             },
             {
               "name": "AzureAd:TenantId",
@@ -1064,13 +1060,13 @@
     }
   ],
   "outputs": {
-    "applicationGatewayIP": {
+    "webAppURL": {
       "type": "string",
-      "value": "[reference(variables('appGatewayPublicIPName')).ipAddress]"
+      "value": "[concat('https://', reference(variables('appGatewayPublicIPName')).dnsSettings.fqdn)]"
     },
-    "applicationGatewayFQDN": {
+    "adminAppURL": {
       "type": "string",
-      "value": "[reference(variables('appGatewayPublicIPName')).dnsSettings.fqdn]"
+      "value": "[concat('https://', reference(resourceId('Microsoft.Web/sites/', variables('adminAppName'))).defaultHostName)]"
     }
   }
 }

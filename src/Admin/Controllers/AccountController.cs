@@ -15,7 +15,7 @@ namespace Admin.Controllers
         [HttpGet]
         public IActionResult SignIn()
         {
-            var redirectUrl = Url.Action(nameof(HomeController.Index), "Home");
+            var redirectUrl = Url.Action(nameof(OrdersController.Index), "Home");
             return Challenge(
                 new AuthenticationProperties { RedirectUri = redirectUrl },
                 OpenIdConnectDefaults.AuthenticationScheme);
@@ -35,10 +35,7 @@ namespace Admin.Controllers
         public IActionResult SignedOut()
         {
             if (User.Identity.IsAuthenticated)
-            {
-                // Redirect to home page if the user is authenticated.
-                return RedirectToAction(nameof(HomeController.Index), "Home");
-            }
+                return RedirectToAction(nameof(OrdersController.Index), "Home");
 
             return View();
         }

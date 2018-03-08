@@ -16,6 +16,8 @@
 
 * [Add Reply URL to the Admin Web App](#add-reply-url-to-the-admin-web-app)
 
+[Access Deployed Resources](#access-deployed-resources)
+
 ## Architecture
 
 ![](images/architecture.png)
@@ -63,7 +65,7 @@ Copy aside its **Application Id**. It will be used as the values of **Azure Ad C
 
    - Enter a value in the **Token description** text box.
 
-   - Select the following s (your selections should match the screenshot below):
+   - Select the followings (your selections should match the screenshot below):
 
      - repo (all) -> repo:status, repo_deployment, public_repo
      - admin:repo_hook -> read:repo_hook
@@ -112,9 +114,9 @@ Copy aside its **Application Id**. It will be used as the values of **Azure Ad C
 
    * **Ase Name**: the name of the App Service Environment. 
 
-     >  Note:  It is also used to name other azure resources. To avoid naming conflict, please choose a special name, for example: **tyler-eshop-180308**.
+     >  Note:  It is also used to name other Azure resources. To avoid naming conflict, please choose a special name, for example: **tyler-eshop-180308**.
 
-   * **Ase Location**: please do choose the same location as location of the resource group.
+   * **Ase Location**: please do choose the same location as the location of the resource group.
 
      > Note: This parameter was added because of this [issue](https://github.com/Azure/azure-quickstart-templates/issues/2828).
 
@@ -129,7 +131,7 @@ Copy aside its **Application Id**. It will be used as the values of **Azure Ad C
      > - Your password must be at least 8 characters in length.
      > - Your password must contain characters from three of the following categories – English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, etc.)
 
-   * **Azure Ad Tenant Id**/**Client Id**: use the values you got from previous chapter.
+   * **Azure Ad Tenant Id**/**Client Id**: use the values you got from the previous chapter.
 
      > Note: they are used for authentication of the Admin Web App.
 
@@ -147,10 +149,9 @@ Copy aside its **Application Id**. It will be used as the values of **Azure Ad C
 
 ### Deployment output
 
-After the deployment finishes, you will get some important information from the outputs section.
+After the deployment finishes, you will get the URLs of the Web App and Admin App from the outputs tab.
 
-* Web App URL
-* Admin App URL
+![](images/azure-deployment-outputs.png)
 
 > Note: the deployment window above could be re-open in the **Deployments** tab of the resource group.
 >
@@ -172,6 +173,20 @@ After the deployment finishes, you will get some important information from the 
 
    ![](images/app-registration-reply-urls.png)
 
+
+## Access Deployed Resources
+
+### Web App
+
+Open the Web App URL you got from the output section in a browser.
+
+![](images/web-app.png)
+
+### Admin App
+
+Open the Admin App URL you got from the output section in a browser. Then sign in with a work account from the AAD in which you registered the app registration.
+
+ ![](images/admin-app.png)
 
 
 
