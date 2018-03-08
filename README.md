@@ -26,7 +26,7 @@
 
 Open the AAD in Azure Portal, then get the **Directory ID**.
 
-![](Images/aad-tenant-id.png)
+![](images/aad-tenant-id.png)
 
 The **Directory ID** will be used as the value of  **Azure Ad Tenant Id** parameter of the ARM Template.
 
@@ -68,7 +68,7 @@ Copy aside its **Application Id**. It will be used as the values of **Azure Ad C
      - repo (all) -> repo:status, repo_deployment, public_repo
      - admin:repo_hook -> read:repo_hook
 
-     ![](Images/github-new-personal-access-token.png)
+     ![](images/github-new-personal-access-token.png)
 
    - Click **Generate token**.
 
@@ -101,8 +101,6 @@ Copy aside its **Application Id**. It will be used as the values of **Azure Ad C
    [![Deploy to Azure](https://camo.githubusercontent.com/9285dd3998997a0835869065bb15e5d500475034/687474703a2f2f617a7572656465706c6f792e6e65742f6465706c6f79627574746f6e2e706e67)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FTylerLu%2FMS-Azure-LOB-ASE%2Fmaster%2Fazuredeploy.json)
 
 3. Fill in the values on the deployment page:
-
-   ![](Images/azure-deploy.png)
 
    **Basics**:
 
@@ -162,7 +160,7 @@ After the deployment finishes, you will get some important information from the 
 
 1. Get the URL of the Admin Web app, and change the schema to http**s**, we will get a base URL.
 
-    ![](Images/admin-web-app.png)
+    ![](images/admin-web-app.png)
 
     For example: `https://huddle-bot.azurewebsites.net`
 
@@ -172,7 +170,8 @@ After the deployment finishes, you will get some important information from the 
 
 3. Add it the Bot App Registration and save.
 
-   ![](Images/app-registration-reply-urls.png)
+   ![](images/app-registration-reply-urls.png)
+
 
 
 
