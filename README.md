@@ -2,7 +2,7 @@
 
 **Table of content**
 
-[Create App Registrations in Azure Active Directory (AAD)](#create-app-registrations-in-azure-activ-directory-aad)
+[Create App Registrations in Azure Active Directory (AAD)](#create-app-registrations-in-azure-active-directory-aad)
 
 * [Get Tenant Id](#get-tenant-id)
 * [Create App Registration for the Admin Web App](#create-app-registration-for-the-admin-web-app)
