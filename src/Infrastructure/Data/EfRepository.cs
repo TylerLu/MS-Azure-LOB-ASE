@@ -130,14 +130,4 @@ namespace Infrastructure.Data
             await _dbContext.SaveChangesAsync();
         }
     }
-
-    // TODO: remove the class below
-    //public class CatalogEfRepository<TEntity> : EfRepository<CatalogContext, TEntity>
-    //    where TEntity : BaseEntity
-    //{
-    //    public CatalogEfRepository(CatalogContext context): base(context)
-    //    {
-
-    //    }
-    //}
 }

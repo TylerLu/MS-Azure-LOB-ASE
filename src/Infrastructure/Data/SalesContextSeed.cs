@@ -23,7 +23,7 @@ namespace Infrastructure.Data
             int retryForAvailability = retry.Value;
             try
             {
-                // TODO: Only run this if using a real database
+                // Only run this if using a real database
                 // context.Database.Migrate();
 
                 if (!salesContext.Orders.Any())
