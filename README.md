@@ -187,9 +187,8 @@ Open the Web App URL you got from the output section in a browser.
 
 ### Admin App
 
-Open the Admin App URL you got from the output section in a browser. Then sign in with a work account in the AAD where you registered the AAD application.
+Open the Admin App URL you got from the output section in a browser. Then sign in with a work account in the AAD where you registered the AAD application. ![](images/admin-app.png)
 
- ![](images/admin-app.png)
 
 
 **Copyright (c) 2018 Microsoft. All rights reserved.**
