@@ -146,13 +146,15 @@ Copy the **Application Id** and save it in a text file. You will need it later t
 
 4. Click **Purchase**.
 
+   > **Note**: The deployment takes about 2 hours to complete.
+
 ### Deployment output
 
 After the deployment finishes, you will see the URLs of the Web App and Admin App in the outputs tab.
 
 ![](images/azure-deployment-outputs.png)
 
-> Note: the deployment window shown above can be re-opened by clicking the **Deployments** tab in the resource group.
+> **Note**: the deployment window shown above can be re-opened by clicking the **Deployments** tab in the resource group.
 >
 > ![](images/azure-resource-group-deployments.png)
 
