@@ -2,12 +2,12 @@
 
 **Table of content**
 
-[Create App Registrations in Azure Active Directory (AAD)](#create-app-registrations-in-azure-activ-directory-aad
+[Create App Registrations in Azure Active Directory (AAD)](#create-app-registrations-in-azure-activ-directory-aad)
 
 * [Get Tenant Id](#get-tenant-id)
 * [Create App Registration for the Admin Web App](#create-app-registration-for-the-admin-web-app)
 
-[Deploy Azure Components with the ARM Template](#deploy-azure-components-with-arm-template)
+[Deploy Azure Components with the ARM Template](#deploy-azure-components-with-the-arm-template)
 
 * [GitHub Authorize](#github-authorize)
 * [Deploy Azure Components](#deploy-azure-components)
