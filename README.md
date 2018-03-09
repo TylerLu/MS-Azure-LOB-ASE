@@ -179,6 +179,8 @@ After the deployment finishes, you will see the URLs of the Web App and Admin Ap
 
 Open the Web App URL you got from the output section in a browser.
 
+> **Note**:  The sample uses **Azure CDN from Verizon** profile and its propagation usually completes within 90 minutes. You may need to wait for a while then the page will look exactly like below.
+
 ![](images/web-app.png)
 
 ### Admin App
