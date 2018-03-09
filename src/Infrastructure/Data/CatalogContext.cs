@@ -1,4 +1,8 @@
-﻿using ApplicationCore.Entities.OrderAggregate;
+﻿/*   
+ *   * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.  
+ *   * See LICENSE in the project root for license information.  
+ */
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.eShopWeb.ApplicationCore.Entities;
@@ -13,7 +17,9 @@ namespace Infrastructure.Data
         }
 
         public DbSet<CatalogItem> CatalogItems { get; set; }
+
         public DbSet<CatalogBrand> CatalogBrands { get; set; }
+
         public DbSet<CatalogType> CatalogTypes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)

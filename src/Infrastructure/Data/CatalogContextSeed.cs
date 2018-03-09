@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿/*   
+ *   * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.  
+ *   * See LICENSE in the project root for license information.  
+ */
+
 using Microsoft.eShopWeb.ApplicationCore.Entities;
 using Microsoft.Extensions.Logging;
 using System;
@@ -62,7 +66,7 @@ namespace Infrastructure.Data
                 new CatalogBrand() { Brand = "Azure"},
                 new CatalogBrand() { Brand = ".NET" },
                 new CatalogBrand() { Brand = "Visual Studio" },
-                new CatalogBrand() { Brand = "SQL Server" }, 
+                new CatalogBrand() { Brand = "SQL Server" },
                 new CatalogBrand() { Brand = "Other" }
             };
         }

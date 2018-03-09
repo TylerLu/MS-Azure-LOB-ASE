@@ -1,9 +1,13 @@
-﻿@model GenerateRecoveryCodesViewModel
+﻿@*
+    *   * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.
+    *   * See LICENSE in the project root for license information.
+*@
+
+@model GenerateRecoveryCodesViewModel
 @{
     ViewData["Title"] = "Recovery codes";
     ViewData.AddActivePage(ManageNavPages.TwoFactorAuthentication);
 }
-
 <h4>@ViewData["Title"]</h4>
 <div class="alert alert-warning" role="alert">
     <p>

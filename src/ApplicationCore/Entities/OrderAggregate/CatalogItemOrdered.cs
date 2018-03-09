@@ -1,4 +1,9 @@
-﻿using System.ComponentModel;
+﻿/*   
+ *   * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.  
+ *   * See LICENSE in the project root for license information.  
+ */
+
+using System.ComponentModel;
 
 namespace ApplicationCore.Entities.OrderAggregate
 {
@@ -17,7 +22,7 @@ namespace ApplicationCore.Entities.OrderAggregate
         public CatalogItemOrdered() { }
 
         public int CatalogItemId { get; set; }
-        
+
         [DisplayName("Product")]
         public string ProductName { get; set; }
 

@@ -1,10 +1,15 @@
-﻿using ApplicationCore.Entities.OrderAggregate;
+﻿/*   
+ *   * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.  
+ *   * See LICENSE in the project root for license information.  
+ */
+
+using ApplicationCore.Entities.OrderAggregate;
 using ApplicationCore.Interfaces;
 using ApplicationCore.Specifications;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Admin.Controllers
 {
@@ -27,7 +32,7 @@ namespace Admin.Controllers
 
             var orders = await orderRepository.ListAsync(spec);
             ViewBag.buyerKey = buyerKey;
-            return View(orders.OrderByDescending(i=>i.OrderDate));
+            return View(orders.OrderByDescending(i => i.OrderDate));
         }
 
         public async Task<IActionResult> Details(int id)

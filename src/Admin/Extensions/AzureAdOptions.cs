@@ -1,4 +1,9 @@
-﻿namespace Microsoft.AspNetCore.Authentication
+﻿/*   
+ *   * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.  
+ *   * See LICENSE in the project root for license information.  
+ */
+
+namespace Microsoft.AspNetCore.Authentication
 {
     public class AzureAdOptions
     {

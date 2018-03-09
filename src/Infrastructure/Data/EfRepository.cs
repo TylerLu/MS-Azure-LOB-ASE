@@ -1,4 +1,9 @@
-﻿using ApplicationCore.Interfaces;
+﻿/*   
+ *   * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.  
+ *   * See LICENSE in the project root for license information.  
+ */
+
+using ApplicationCore.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.eShopWeb.ApplicationCore.Entities;
 using System.Collections.Generic;
@@ -12,8 +17,8 @@ namespace Infrastructure.Data
     /// https://blogs.msdn.microsoft.com/pfxteam/2012/04/13/should-i-expose-synchronous-wrappers-for-asynchronous-methods/
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
-    public class EfRepository<TDbContext, TEntity> : IRepository<TEntity>, IAsyncRepository<TEntity> 
-        where TDbContext: DbContext
+    public class EfRepository<TDbContext, TEntity> : IRepository<TEntity>, IAsyncRepository<TEntity>
+        where TDbContext : DbContext
         where TEntity : BaseEntity
     {
         protected readonly TDbContext _dbContext;

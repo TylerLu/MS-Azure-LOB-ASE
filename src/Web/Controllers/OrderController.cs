@@ -1,4 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿/*   
+ *   * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.  
+ *   * See LICENSE in the project root for license information.  
+ */
+
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.eShopWeb.ViewModels;
@@ -17,11 +22,12 @@ namespace Microsoft.eShopWeb.Controllers
         private readonly IOrderRepository _orderRepository;
         private readonly IUriComposer _uriComposer;
 
-        public OrderController(IOrderRepository orderRepository, IUriComposer uriComposer) {
+        public OrderController(IOrderRepository orderRepository, IUriComposer uriComposer)
+        {
             _orderRepository = orderRepository;
             _uriComposer = uriComposer;
         }
-        
+
         public async Task<IActionResult> Index()
         {
             var orders = await _orderRepository.ListAsync(new CustomerOrdersWithItemsSpecification(User.Identity.Name));

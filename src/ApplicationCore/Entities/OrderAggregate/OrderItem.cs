@@ -1,4 +1,9 @@
-﻿using Microsoft.eShopWeb.ApplicationCore.Entities;
+﻿/*   
+ *   * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.  
+ *   * See LICENSE in the project root for license information.  
+ */
+
+using Microsoft.eShopWeb.ApplicationCore.Entities;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -10,7 +15,7 @@ namespace ApplicationCore.Entities.OrderAggregate
         public Order Order { get; set; }
 
         public CatalogItemOrdered ItemOrdered { get; set; }
-        
+
         [DisplayName("Unit Price")]
         [DataType(DataType.Currency)]
         public decimal UnitPrice { get; set; }

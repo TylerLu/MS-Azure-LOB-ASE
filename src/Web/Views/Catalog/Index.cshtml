@@ -1,4 +1,9 @@
-﻿@{
+﻿@*
+    *   * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.
+    *   * See LICENSE in the project root for license information.
+*@
+
+@{
     ViewData["Title"] = "Catalog";
     @model CatalogIndexViewModel
 }
@@ -7,7 +12,6 @@
         <img class="esh-catalog-title" src="/images/main_banner_text.png" />
     </div>
 </section>
-
 <section class="esh-catalog-filters">
     <div class="container">
         <form asp-action="Index" asp-controller="Catalog" method="post">
@@ -21,9 +25,7 @@
         </form>
     </div>
 </section>
-
 <div class="container">
-
     @if (Model.CatalogItems.Any())
     {
         @Html.Partial("_pagination", Model.PaginationInfo)

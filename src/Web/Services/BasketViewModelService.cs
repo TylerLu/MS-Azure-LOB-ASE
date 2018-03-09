@@ -1,4 +1,9 @@
-﻿using ApplicationCore.Interfaces;
+﻿/*   
+ *   * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.  
+ *   * See LICENSE in the project root for license information.  
+ */
+
+using ApplicationCore.Interfaces;
 using ApplicationCore.Specifications;
 using Microsoft.eShopWeb.ApplicationCore.Entities;
 using Microsoft.eShopWeb.Interfaces;
@@ -29,7 +34,7 @@ namespace Microsoft.eShopWeb.Services
             var basketSpec = new BasketWithItemsSpecification(userName);
             var basket = (await _basketRepository.ListAsync(basketSpec)).FirstOrDefault();
 
-            if(basket == null)
+            if (basket == null)
             {
                 return await CreateBasketForUser(userName);
             }

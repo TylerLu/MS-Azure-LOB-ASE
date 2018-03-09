@@ -1,4 +1,9 @@
-﻿using Microsoft.OData.Client;
+﻿/*   
+ *   * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.  
+ *   * See LICENSE in the project root for license information.  
+ */
+
+using Microsoft.OData.Client;
 using System;
 using System.Linq;
 using System.Linq.Expressions;

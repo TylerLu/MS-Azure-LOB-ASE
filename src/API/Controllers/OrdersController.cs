@@ -1,4 +1,9 @@
-﻿using ApplicationCore.Entities.OrderAggregate;
+﻿/*   
+ *   * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.  
+ *   * See LICENSE in the project root for license information.  
+ */
+
+using ApplicationCore.Entities.OrderAggregate;
 using Infrastructure.Data;
 using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Mvc;
@@ -37,7 +42,7 @@ namespace API.Controllers
         {
             if (navigationProperty != "OrderItems")
                 throw new NotSupportedException();
-            
+
             int itemId;
             var itemIdStr = Regex.Match(link.AbsolutePath, @"\d+").Value;
             if (!int.TryParse(itemIdStr, out itemId))

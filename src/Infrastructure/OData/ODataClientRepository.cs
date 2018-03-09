@@ -1,4 +1,9 @@
-﻿using ApplicationCore.Interfaces;
+﻿/*   
+ *   * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.  
+ *   * See LICENSE in the project root for license information.  
+ */
+
+using ApplicationCore.Interfaces;
 using Microsoft.eShopWeb.ApplicationCore.Entities;
 using Microsoft.OData.Client;
 using System;
@@ -13,7 +18,7 @@ namespace Infrastructure.OData
     {
         protected string entitySetName;
         protected Container container;
-        
+
         public ODataClientRepository(Uri serviceRoot)
         {
             this.entitySetName = GetEntitySetName();
@@ -114,7 +119,7 @@ namespace Infrastructure.OData
             var query = container.CreateQuery<TEntity>(entitySetName);
             return query.ExecuteAsync();
         }
-        
+
         virtual protected string GetEntitySetName()
         {
             return typeof(TEntity).Name + "s";

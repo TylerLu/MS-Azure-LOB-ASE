@@ -1,9 +1,13 @@
-﻿@using Microsoft.eShopWeb.ViewModels
+﻿@*
+    *   * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.
+    *   * See LICENSE in the project root for license information.
+*@
+
+@using Microsoft.eShopWeb.ViewModels
 @model IEnumerable<OrderViewModel>
 @{
     ViewData["Title"] = "My Order History";
 }
-
 <div class="esh-orders">
     <div class="container">
         <h1>@ViewData["Title"]</h1>
@@ -28,7 +32,7 @@
                     </section>
                     <section class="esh-orders-item col-xs-1">
                         @if (item.Status.ToLower() == "submitted")
-                    {
+                        {
                             <a class="esh-orders-link" asp-controller="Order" asp-action="cancel" asp-route-orderId="@item.OrderNumber">Cancel</a>
                         }
                     </section>

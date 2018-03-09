@@ -1,4 +1,9 @@
-﻿using ApplicationCore.Interfaces;
+﻿/*   
+ *   * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.  
+ *   * See LICENSE in the project root for license information.  
+ */
+
+using ApplicationCore.Interfaces;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 

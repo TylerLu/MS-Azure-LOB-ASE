@@ -1,4 +1,9 @@
-﻿using ApplicationCore.Entities.OrderAggregate;
+﻿/*   
+ *   * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.  
+ *   * See LICENSE in the project root for license information.  
+ */
+
+using ApplicationCore.Entities.OrderAggregate;
 using ApplicationCore.Interfaces;
 using ApplicationCore.Services;
 using Infrastructure.Data;
@@ -89,7 +94,7 @@ namespace Microsoft.eShopWeb
                 options.Configuration = Configuration.GetConnectionString("RedisConnection");
                 options.InstanceName = "master";
             });
-            
+
             services.AddSingleton<IUriComposer>(new UriComposer(Configuration.Get<CatalogSettings>()));
 
             ConfigureServices(services);

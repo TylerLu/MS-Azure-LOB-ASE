@@ -1,9 +1,13 @@
-﻿@model ExternalLoginsViewModel
+﻿@*
+    *   * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.
+    *   * See LICENSE in the project root for license information.
+*@
+
+@model ExternalLoginsViewModel
 @{
     ViewData["Title"] = "Manage your external logins";
     ViewData.AddActivePage(ManageNavPages.ExternalLogins);
 }
-
 @Html.Partial("_StatusMessage", Model.StatusMessage)
 @if (Model.CurrentLogins?.Count > 0)
 {
