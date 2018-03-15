@@ -1,4 +1,4 @@
-# LoB solution with ASE
+# eShop Website with ILB ASE
 
 **Table of content**
 
@@ -21,6 +21,8 @@
 ## Architecture
 
 ![](images/architecture.png)
+
+Download the Visio diagram [here](/e-shop-website-with-ilb-ase/architecture.vsdx).
 
 ## Create App Registrations in Azure Active Directory (AAD) 
 
@@ -97,13 +99,13 @@ Copy the **Application Id** and save it in a text file. You will need it later t
 
 1. Fork this repository to your GitHub account.
 
-2. Click the Deploy to Azure Button:
+2. Click the **Deploy to Azure** Button:
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FTylerLu%2FMS-Azure-LOB-ASE%2Fmaster%2Fazuredeploy.json" target="_blank">
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fe-shop-website-with-ilb-ase%2Fazuredeploy.json" target="_blank">
      <img src="http://azuredeploy.net/deploybutton.png"/>
    </a>
 
-   <a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FTylerLu%2FMS-Azure-LOB-ASE%2Fmaster%2Fazuredeploy.json" target="_blank">
+   <a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fe-shop-website-with-ilb-ase%2Fazuredeploy.json" target="_blank">
      <img src="http://armviz.io/visualizebutton.png"/>
    </a>
 
@@ -140,7 +142,7 @@ Copy the **Application Id** and save it in a text file. You will need it later t
 
      > Note: These values are used to authenticate the Admin Web App.
 
-   * **Source Code Repository URL**: use the URL of the repository you just created -`https://github.com/<YourAccount>/MS-Azure-LOB-ASE`
+   * **Source Code Repository URL**: use the URL of the repository you just created -`https://github.com/<YourAccount>/azure-quickstart-templates`
 
    * **Source Code Branch**: master
 

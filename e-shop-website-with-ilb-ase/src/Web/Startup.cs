@@ -24,6 +24,7 @@ using System;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using Web.Middlewares;
 
 namespace Microsoft.eShopWeb
 {
@@ -114,6 +115,13 @@ namespace Microsoft.eShopWeb
                 options.LogoutPath = "/Account/Signout";
             });
 
+            //services.Configure<AuthenticationOptions>(o =>
+            //{
+            //    o.SchemeMap.Remove(IdentityConstants.ApplicationScheme);
+            //    o.AddScheme<CookieAuthenticationHandler>(IdentityConstants.ApplicationScheme, "");
+
+            //});
+
             // Add scoped for IRepository<> and IAsyncRepository<> dynamically, as we have more than one database contexts.
             var dbContextTypes = new[] { typeof(CatalogContext), typeof(SalesContext) };
             foreach (var dbContextType in dbContextTypes)
@@ -155,7 +163,6 @@ namespace Microsoft.eShopWeb
             var storageConnection = Configuration.GetConnectionString("StorageConnection");
             services.AddTransient<IStorageService>(p => new CloudStorageService(storageConnection));
 
-
             services.AddMvc();
 
             _services = services;
@@ -192,6 +199,8 @@ namespace Microsoft.eShopWeb
                 // HomePageCache middleware depends on autentication.
                 app.UseMiddleware<HomePageCache>();
             }
+
+            app.UseMiddleware<FixSigninRedirectLocation>();
 
             app.UseMvc();
         }

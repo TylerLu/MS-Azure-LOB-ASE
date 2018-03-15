@@ -7,14 +7,16 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 
 namespace Infrastructure.Data.Migrations.Sales
 {
     [DbContext(typeof(SalesContext))]
-    partial class SalesContextModelSnapshot : ModelSnapshot
+    [Migration("20180312031105_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -112,9 +114,10 @@ namespace Infrastructure.Data.Migrations.Sales
 
             modelBuilder.Entity("ApplicationCore.Entities.OrderAggregate.OrderItem", b =>
                 {
-                    b.HasOne("ApplicationCore.Entities.OrderAggregate.Order")
+                    b.HasOne("ApplicationCore.Entities.OrderAggregate.Order", "Order")
                         .WithMany("OrderItems")
-                        .HasForeignKey("OrderId");
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.OwnsOne("ApplicationCore.Entities.OrderAggregate.CatalogItemOrdered", "ItemOrdered", b1 =>
                         {
@@ -139,7 +142,8 @@ namespace Infrastructure.Data.Migrations.Sales
                 {
                     b.HasOne("Microsoft.eShopWeb.ApplicationCore.Entities.Basket")
                         .WithMany("Items")
-                        .HasForeignKey("BasketId");
+                        .HasForeignKey("BasketId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

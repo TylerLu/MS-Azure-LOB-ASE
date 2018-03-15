@@ -17,7 +17,6 @@ namespace Infrastructure.Services
     {
         private CloudStorageAccount storageAccount;
 
-
         public CloudStorageService(string connectionString)
         {
             storageAccount = CloudStorageAccount.Parse(connectionString);
