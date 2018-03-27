@@ -2,11 +2,14 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "aseName": {
-      "value": "GEN-UNIQUE-16"
+    "existingASEName": {
+      "value": "GET-PREREQ-existingASEName"
     },
-    "aseLocation": {
-      "value": "West US"
+    "existingASELocation": {
+      "value": "GET-PREREQ-existingASELocation"
+    },
+    "existingASEILBIPAddress": {
+      "value": "192.168.250.11"
     },
     "sqlServerAdministratorLogin": {
       "value": "GEN-UNIQUE"
