@@ -47,7 +47,9 @@
   "variables": {
     "location": "[parameters('location')]",
     "vnetName": "[concat(parameters('name'), '-vnet')]",
+    "vnetAddressPrefixes": "192.168.250.0/23",
     "aseSubnetName": "[concat(parameters('name'), '-subnet')]",
+    "aseSubnetAddressPrefixes": "192.168.250.0/24",
     "subnetRouteTableName": "[concat(parameters('name'), '-route-table')]",
     "subnetNSGName": "[concat(parameters('name'), '-nsg')]"
   },
@@ -84,14 +86,14 @@
       "properties": {
         "addressSpace": {
           "addressPrefixes": [
-            "192.168.250.0/23"
+            "[variables('vnetAddressPrefixes')]"
           ]
         },
         "subnets": [
           {
             "name": "[variables('aseSubnetName')]",
             "properties": {
-              "addressPrefix": "192.168.250.0/24",
+              "addressPrefix": "[variables('aseSubnetAddressPrefixes')]",
               "networkSecurityGroup": {
                 "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('subnetNSGName'))]"
               },
@@ -168,7 +170,7 @@
               "protocol": "*",
               "sourcePortRange": "*",
               "destinationPortRange": "*",
-              "sourceAddressPrefix": "192.168.250.0/24",
+              "sourceAddressPrefix": "[variables('aseSubnetAddressPrefixes')]",
               "destinationAddressPrefix": "*",
               "access": "Allow",
               "priority": 110,
@@ -351,7 +353,7 @@
               "sourcePortRange": "*",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "*",
-              "destinationAddressPrefix": "192.168.250.0/24",
+              "destinationAddressPrefix": "[variables('aseSubnetAddressPrefixes')]",
               "access": "Allow",
               "priority": 160,
               "direction": "Outbound"
@@ -379,7 +381,7 @@
               "sourcePortRange": "*",
               "destinationPortRange": "*",
               "sourceAddressPrefix": "*",
-              "destinationAddressPrefix": "192.168.250.0/23",
+              "destinationAddressPrefix": "[variables('vnetAddressPrefixes')]",
               "access": "Allow",
               "priority": 180,
               "direction": "Outbound"

@@ -75,6 +75,7 @@
     "vnetName": "[concat(parameters('existingAseName'), '-vnet')]",
     "aseSubnetName": "[concat(parameters('existingAseName'), '-subnet')]",
     "agSubnetName": "app-gateway-subnet",
+    "agSubnetAddressPrefix": "192.168.251.64/26",
     "subnetRouteTableName": "[concat(parameters('existingAseName'), '-route-table')]",
     "subnetNSGName": "[concat(parameters('existingAseName'), '-nsg')]",
     "aspName": "[concat(parameters('existingAseName'), '-asp')]",
@@ -87,6 +88,8 @@
     "storageAccountName": "[concat(replace(parameters('existingAseName'), '-', ''), '')]",
     "redisCacheName": "[concat(parameters('existingAseName'), '-cache')]",
     "redisCacheSubnetName": "redis-cache-subnet",
+    "redisCacheSubnetAddressPrefix": "192.168.251.0/26",
+    "redisCacheStaticIP": "192.168.251.62",
     "appGatewayName": "[concat(parameters('existingAseName'), '-waf')]",
     "appGatewayID": "[resourceId('Microsoft.Network/applicationGateways', variables('appGatewayName'))]",
     "appGatewayPublicIPName": "[concat(parameters('existingAseName'), '-waf-ip')]",
@@ -101,7 +104,7 @@
       "type": "Microsoft.Network/virtualNetworks/subnets",
       "name": "[concat(variables('vnetName'), '/', variables('redisCacheSubnetName'))]",
       "properties": {
-        "addressPrefix": "192.168.251.0/26"
+        "addressPrefix": "[variables('redisCacheSubnetAddressPrefix')]"
       }
     },
     {
@@ -109,7 +112,7 @@
       "type": "Microsoft.Network/virtualNetworks/subnets",
       "name": "[concat(variables('vnetName'), '/', variables('agSubnetName'))]",
       "properties": {
-        "addressPrefix": "192.168.251.64/26"
+        "addressPrefix": "[variables('agSubnetAddressPrefix')]"
       },
       "dependsOn": [
         "[resourceId('Microsoft.Network/virtualNetworks/subnets/', variables('vnetName'), variables('redisCacheSubnetName'))]"
@@ -487,7 +490,7 @@
           "capacity": 1
         },
         "subnetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets/', variables('vnetName'), variables('redisCacheSubnetName'))]",
-        "staticIP": "192.168.251.62",
+        "staticIP": "[variables('redisCacheStaticIP')]",
         "redisConfiguration": {},
         "enableNonSslPort": true
       },
